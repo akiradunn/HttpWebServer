@@ -1,10 +1,7 @@
 package com.dunn.Net;
 import java.io.BufferedReader;
 public class MyRequest {
-	 private String uriString = ""; 
-	 public MyRequest(){
-		 
-	 }
+     private String uriString = ""; 
      public void phraseUri(BufferedReader in) throws Exception{
     	    String buf = "";
     	    String reqString = "";
