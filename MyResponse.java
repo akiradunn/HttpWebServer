@@ -4,7 +4,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.PrintWriter;
 public class MyResponse {
-	String path = "";
+	String path = "";//pathä¼šè¢«æŒ‡æ´¾æˆä¸ºè¯·æ±‚èµ„æºæ–‡ä»¶åœ¨æœ¬åœ°è·¯å¾„
 	MyRequest req = null;
 	PrintWriter out = null;
 	public MyResponse(MyRequest req,PrintWriter out) {
@@ -12,11 +12,11 @@ public class MyResponse {
 		this.path = path+(req.geturiString().replace('/', '\\'));
 		this.out = out;
 	}
-    public void sendToCliect() throws Exception{//¶Ô¿Í»§¶Ë½øĞĞ·´À¡
+    public void sendToCliect() throws Exception{//å¯¹å®¢æˆ·ç«¯è¿›è¡Œåé¦ˆ
     	path = HttpServer.webroot+path;
     	//SOP.p(path+" hello");
     	File file = new File(path);
-    	   if(file.exists()){//Èç¹û±¾µØ´æÔÚ¾ÍÈ¡ÎÄ¼ş·µ»Ø
+    	   if(file.exists()){//å¦‚æœæœ¬åœ°å­˜åœ¨å°±å–æ–‡ä»¶è¿”å›
     		   BufferedReader reader = new BufferedReader(new FileReader(file));
     		   String str = "";
 				while(null!=(str=reader.readLine())){
@@ -24,7 +24,7 @@ public class MyResponse {
 							//SOP.p(str);
 				   }
 				reader.close();
-    	   }else{//Èç¹û²»´æÔÚÔò·µ»Ø404Ò³Ãæ
+    	   }else{//å¦‚æœä¸å­˜åœ¨åˆ™è¿”å›404é¡µé¢
 				String str ="HTTP/1.1 404 File Not Found/r/n" +
 				            "Content-Type: text/html/r/n" +
 				            "Content-Length: 23/r/n" +
